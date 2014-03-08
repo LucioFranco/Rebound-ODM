@@ -1,0 +1,9 @@
+lib-cov
+**.swp
+*.sw*
+*.orig
+.DS_Store
+node_modules/
+docs/
+test/
+Makefile

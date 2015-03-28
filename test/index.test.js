@@ -3,12 +3,9 @@ var should = require('should');
 
 describe("rebound module: ", function () {
   describe('default connection works', function() {
-    it('without options - promise', function(done){
-      Rebound.ping(1000).then(function(res){
+    it('without options - promise', function(){
+      return Rebound.ping(1000).then(function(res){
         res.should.be.ok;
-        done();
-      },function(err){
-        done(err);
       });
     });
     it('without options - callback', function(done){

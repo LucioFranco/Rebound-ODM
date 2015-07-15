@@ -16,4 +16,22 @@ describe("rebound module: ", function () {
       });
     });
   });
+  describe('custom connection configuration', function() {
+    it('with options', function() {
+      Rebound.connect({ host: 'localhost:9200' });
+      return Rebound
+        .ping(1000)
+        .then(function (res) {
+          res.should.be.ok
+        });
+    });
+    it('with string for host', function() {
+      Rebound.connect('localhost:9200');
+      return Rebound
+        .ping(1000)
+        .then(function (res) {
+          res.should.be.ok
+        });
+    });
+  });
 });

@@ -32,11 +32,11 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/boatmeme/rebound-js/issues"
+    "url": "https://github.com/LucioFranco/Reboundjs/issues"
   },
   "dependencies": {
-    "elasticsearch": "~4.0.1",
-    "lodash": "~3.6.0"
+    "elasticsearch": "^5.0.0",
+    "lodash": "^3.10.0"
   },
   "devDependencies": {
     "coveralls": "^2.11.2",

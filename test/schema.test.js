@@ -1,4 +1,4 @@
-var ReboundSchema = require(__dirname + '/../lib/ReboundSchema');
+var ReboundSchema = require(__dirname + '/../lib/schema');
 var should = require('should');
 
 describe("rebound schema: ", function () {

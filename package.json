@@ -11,21 +11,9 @@
     "type": "git",
     "url": "https://github.com/LucioFranco/Reboundjs.git"
   },
-  "keywords": [
-    "elasticsearch",
-    "odm",
-    "elastic",
-    "document",
-    "search",
-    "nosql",
-    "model",
-    "schema",
-    "orm",
-    "data",
-    "datastore",
-    "query",
-    "connection"
-  ],
+  "directories": {
+    "lib": "./lib"
+  },
   "author": [
     "Jonathan Griggs <jonathan.griggs@gmail.com>",
     "Lucio Franco <lucio.franco@du.edu"
@@ -44,5 +32,20 @@
     "istanbul": "^0.3.17",
     "mocha": "~2.2.1",
     "should": "~5.2.0"
-  }
+  },
+  "keywords": [
+    "elasticsearch",
+    "odm",
+    "elastic",
+    "document",
+    "search",
+    "nosql",
+    "model",
+    "schema",
+    "orm",
+    "data",
+    "datastore",
+    "query",
+    "connection"
+  ]
 }

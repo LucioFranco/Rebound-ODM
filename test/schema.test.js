@@ -1,22 +1,22 @@
-var ReboundSchema = require(__dirname + '/../lib/schema');
+var Schema = require('../lib/schema');
 var should = require('should');
 
-describe("rebound schema: ", function () {
+describe("Schema: ", function () {
   describe('types',function(){
     it('should map schema types to Elasticsearch types',function(){
-      ReboundSchema.types.String.should.eql('string');
-      ReboundSchema.types[String].should.eql('string');
+      Schema.types.String.should.eql('string');
+      Schema.types[String].should.eql('string');
     })
   })
 
   describe('getIndexMappingJSON', function() {
     it('should map a schema definition to a valid Elasticsearch Index Mapping', function(){
-      var schema = new ReboundSchema({
+      var schema = new Schema({
         name: String,
         description: {type: String, index_analyzer:"type"},
         count: {type: 'number'},
         max: Number,
-        anotherField: ReboundSchema.types.String,
+        anotherField: Schema.types.String,
         anotherProperty: String
       });
       var map = schema.getIndexMappingJSON();

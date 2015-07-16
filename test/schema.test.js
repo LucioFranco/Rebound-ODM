@@ -59,12 +59,13 @@ describe("Schema: ", function () {
     });
   });
   describe('apply schema', function() {
+    var schema = new Schema({
+      name: String,
+      description: { type: String },
+      count: Number
+    });
+
     it('apply schema with correct doc', function() {
-      var schema = new Schema({
-        name: String,
-        description: { type: String },
-        count: Number
-      });
       var appliedSchema = schema.applySchema({
         name: 'Alex',
         description: 'Here is a desscription',
@@ -73,11 +74,6 @@ describe("Schema: ", function () {
       appliedSchema.should.have.properties(['name', 'description', 'count']);
     });
     it('apply schema with correct doc', function() {
-      var schema = new Schema({
-        name: String,
-        description: { type: String },
-        count: Number
-      });
       var appliedSchema = schema.applySchema({
         name: 'Alex',
         description: 'Here is a desscription',
@@ -86,6 +82,18 @@ describe("Schema: ", function () {
       });
       appliedSchema.should.have.properties(['name', 'description', 'count']);
       appliedSchema.should.not.have.property('dog');
+    });
+    it('apply schema should throw error', function() {
+      var didThrow = false;
+      try {
+        var appliedSchema = schema.applySchema({
+          name: 'Alex',
+          description: 'Here is a desscription'
+        });
+      }catch (err) {
+        didThrow = true;
+      }
+      if (!didThrow) throw new Error('did not throw');
     });
   });
 });

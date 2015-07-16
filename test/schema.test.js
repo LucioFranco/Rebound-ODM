@@ -1,5 +1,6 @@
 var Schema = require('../lib/schema');
 var should = require('should');
+var _      = require('lodash');
 
 describe("Schema: ", function () {
   describe('types',function(){
@@ -20,8 +21,11 @@ describe("Schema: ", function () {
         anotherProperty: String
       });
       var map = schema.getIndexMappingJSON();
-      //console.log(map);
       map.should.be.ok;
+      map.should.have.property('properties');
+      _.each(map.properties, function (e) {
+        e.should.have.property('type');
+      });
     });
   });
 });

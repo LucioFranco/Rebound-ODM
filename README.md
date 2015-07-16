@@ -1,6 +1,6 @@
 # Reboundjs
 
-[![Build Status](https://travis-ci.org/LucioFranco/Reboundjs.svg?branch=master)](https://travis-ci.org/LucioFranco/Reboundjs) [![David](https://img.shields.io/david/LucioFranco/Reboundjs.svg)](https://github.com/LucioFranco/Reboundjs) [![David](https://img.shields.io/david/dev/LucioFranco/Reboundjs.svg)](https://github.com/LucioFranco/Reboundjs) [![GitHub license](https://img.shields.io/github/license/LucioFranco/Reboundjs.svg)](https://github.com/LucioFranco/Reboundjs)
+[![Build Status](https://travis-ci.org/LucioFranco/Reboundjs.svg?branch=master)](https://travis-ci.org/LucioFranco/Reboundjs) [![Coverage Status](https://coveralls.io/repos/LucioFranco/Reboundjs/badge.svg?branch=master&service=github)](https://coveralls.io/github/LucioFranco/Reboundjs?branch=master) [![David](https://img.shields.io/david/LucioFranco/Reboundjs.svg)](https://github.com/LucioFranco/Reboundjs) [![David](https://img.shields.io/david/dev/LucioFranco/Reboundjs.svg)](https://github.com/LucioFranco/Reboundjs) [![GitHub license](https://img.shields.io/github/license/LucioFranco/Reboundjs.svg)](https://github.com/LucioFranco/Reboundjs)
 
 ## Introduction
 

@@ -1,7 +1,7 @@
 var Rebound = require(__dirname + '/../index');
 var should = require('should');
 
-describe("rebound module: ", function () {
+describe("Rebound module: ", function () {
   describe('default connection works', function() {
     it('without options - promise', function(){
       return Rebound.ping(1000).then(function(res){

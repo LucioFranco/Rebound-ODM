@@ -36,12 +36,13 @@ describe("Schema: ", function () {
         description: { type: String },
         count: Number
       });
-      var result = schema.validateDoc({
+      var err = schema.validateDoc({
         name: 'Alex',
         description: 'His name is Alex',
         count: 3
       });
-      result.should.be.true;
+      err.should.be.Array;
+      err.length.should.be.eql(0);
     });
     it('should pass validation', function() {
       var schema = new Schema({
@@ -49,11 +50,42 @@ describe("Schema: ", function () {
         description: { type: String },
         count: Number
       });
-      var result = schema.validateDoc({
+      var err = schema.validateDoc({
         name: 'Alex',
         description: 'His name is Alex'
       });
-      result.should.be.false;
+      err.should.be.be.Array;
+      err.length.should.eql(1);
+    });
+  });
+  describe('apply schema', function() {
+    it('apply schema with correct doc', function() {
+      var schema = new Schema({
+        name: String,
+        description: { type: String },
+        count: Number
+      });
+      var appliedSchema = schema.applySchema({
+        name: 'Alex',
+        description: 'Here is a desscription',
+        count: 5
+      });
+      appliedSchema.should.have.properties(['name', 'description', 'count']);
+    });
+    it('apply schema with correct doc', function() {
+      var schema = new Schema({
+        name: String,
+        description: { type: String },
+        count: Number
+      });
+      var appliedSchema = schema.applySchema({
+        name: 'Alex',
+        description: 'Here is a desscription',
+        count: 5,
+        dog: 'five'
+      });
+      appliedSchema.should.have.properties(['name', 'description', 'count']);
+      appliedSchema.should.not.have.property('dog');
     });
   });
 });

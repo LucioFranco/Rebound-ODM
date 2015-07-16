@@ -11,4 +11,4 @@ script:
   - npm run coverage
 
 after_success:
-  - make report-coverage
+  - "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"

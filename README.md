@@ -16,18 +16,7 @@ We're just beginning, but I'm incorporating many of the lessons learned from sev
 
 ## Roadmap
 
-This is a tentative roadmap. No specific version targets, but the order-of-implementation is mostly accurate.
-
-- [ ] Connection Configuration Abstractions
-- [ ] Rebound Model -> ES schema mappings
-- [ ] Rebound Model CRUD
-- [ ] Rebound Model Validation
-- [ ] ES Result -> Rebound Model mapping
-- [ ] Multi-Index, Per-Model
-- [ ] Search Abstraction, with a particular focus on supporting cross-model, and cross-index searches
-- [ ] Snapshot / Restore Facilities
-- [ ] Migrations / Index-level Version Control
-- [ ] Versioning / Document-level Version Control
+Check out the [roadmap](https://github.com/LucioFranco/Reboundjs/issues/1).
 
 ## Testing
 

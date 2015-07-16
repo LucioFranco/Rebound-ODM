@@ -1,8 +1,9 @@
-var Model  = require('../lib/model');
-var Schema = require('../lib/schema');
+var Model   = require('../lib/model');
+var Schema  = require('../lib/schema');
 var Rebound = require('../')
-var es = require('elasticsearch');
-var should = require('should');
+var es      = require('elasticsearch');
+var should  = require('should');
+var util    = require('./testutil');
 
 describe('Model:', function () {
   describe('create model', function () {
@@ -32,12 +33,13 @@ describe('Model:', function () {
     });
   });
   describe('model create', function() {
+    var TestSchema = new Schema({
+      name: String,
+      count: Number
+    });
+    var TestModel = new Model(Rebound.connection, {index: 'test', type: 'text'}, TestSchema);
+
     it('create document with doc', function() {
-      var TestSchema = new Schema({
-        name: String,
-        count: Number
-      });
-      var TestModel = new Model(Rebound.connection, {index: 'test', type: 'text'}, TestSchema);
       return TestModel
         .create({
           name: 'USA',
@@ -47,6 +49,11 @@ describe('Model:', function () {
           result.should.be.ok;
           result.created.should.be.true;
         });
+    });
+    it('create document with doc', function() {
+      util.shouldThrowError(function () {
+        TestModel.create({ name: 'RUSSIA' });
+      });
     });
   });
   after(function () {

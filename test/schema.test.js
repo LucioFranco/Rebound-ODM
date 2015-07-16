@@ -1,6 +1,7 @@
 var Schema = require('../lib/schema');
 var should = require('should');
 var _      = require('lodash');
+var util   = require('./testutil');
 
 describe("Schema: ", function () {
   describe('types',function(){
@@ -84,16 +85,12 @@ describe("Schema: ", function () {
       appliedSchema.should.not.have.property('dog');
     });
     it('apply schema should throw error', function() {
-      var didThrow = false;
-      try {
+      util.shouldThrowError(function () {
         var appliedSchema = schema.applySchema({
           name: 'Alex',
           description: 'Here is a desscription'
         });
-      }catch (err) {
-        didThrow = true;
-      }
-      if (!didThrow) throw new Error('did not throw');
+      });
     });
   });
 });

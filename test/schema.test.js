@@ -28,4 +28,32 @@ describe("Schema: ", function () {
       });
     });
   });
+
+  describe('validate document', function() {
+    it('should pass validation', function() {
+      var schema = new Schema({
+        name: String,
+        description: { type: String },
+        count: Number
+      });
+      var result = schema.validateDoc({
+        name: 'Alex',
+        description: 'His name is Alex',
+        count: 3
+      });
+      result.should.be.true;
+    });
+    it('should pass validation', function() {
+      var schema = new Schema({
+        name: String,
+        description: { type: String },
+        count: Number
+      });
+      var result = schema.validateDoc({
+        name: 'Alex',
+        description: 'His name is Alex'
+      });
+      result.should.be.false;
+    });
+  });
 });

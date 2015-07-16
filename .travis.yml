@@ -9,7 +9,7 @@ script:
   - npm run coverage
 
 after_success:
-  - "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+  - "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
 
 env:
   #- COVERALLS_PARALLEL=true

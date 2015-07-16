@@ -4,6 +4,8 @@
 
 ## Introduction
 
+> Note: This is a fork from [boatmeme/Rebound-js](https://github.com/boatmeme/rebound-js) and is in heavy development
+
 An ElasticSearch ODM for Node.js. Use ElasticSearch as your primary document store...Elastic connection!
 
 ## Goals

@@ -57,6 +57,6 @@ describe('Model:', function () {
     });
   });
   after(function () {
-    return es.Client().indices.flush({index: 'test'});
+    return es.Client().indices.delete({index: 'test'});
   });
 });

@@ -4,6 +4,7 @@ var Rebound = require('../')
 var es      = require('elasticsearch');
 var should  = require('should');
 var util    = require('./testutil');
+var faker   = require('faker');
 
 describe('Model:', function () {
   describe('create model', function () {
@@ -44,8 +45,8 @@ describe('Model:', function () {
       it('create document with doc', function() {
         return TestModel
           .create({
-            name: 'USA',
-            count: 10
+            name: faker.name.findName(),
+            count: faker.random.number()
           })
           .then(function (result) {
             result.should.be.ok;
@@ -54,7 +55,7 @@ describe('Model:', function () {
       });
       it('create document with doc', function() {
         util.shouldThrowError(function () {
-          TestModel.create({ name: 'RUSSIA' });
+          TestModel.create({ name: faker.name.findName() });
         });
       });
     });
@@ -62,8 +63,8 @@ describe('Model:', function () {
       it('delete created document', function() {
         return TestModel
           .create({
-            name: 'Bob',
-            count: 115
+            name: faker.name.findName(),
+            count: faker.random.number()
           })
           .then(function (result) {
             return TestModel.delete(result._id);

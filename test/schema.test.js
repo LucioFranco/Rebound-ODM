@@ -2,6 +2,7 @@ var Schema = require('../lib/schema');
 var should = require('should');
 var _      = require('lodash');
 var util   = require('./testutil');
+var faker  = require('faker');
 
 describe("Schema: ", function () {
   describe('types',function(){
@@ -38,9 +39,9 @@ describe("Schema: ", function () {
         count: Number
       });
       var err = schema.validateDoc({
-        name: 'Alex',
-        description: 'His name is Alex',
-        count: 3
+        name: faker.name.findName(),
+        description: faker.lorem.sentences(),
+        count: faker.random.number()
       });
       err.should.be.Array;
       err.length.should.be.eql(0);
@@ -52,8 +53,8 @@ describe("Schema: ", function () {
         count: Number
       });
       var err = schema.validateDoc({
-        name: 'Alex',
-        description: 'His name is Alex'
+        name: faker.name.findName(),
+        description: faker.lorem.sentences()
       });
       err.should.be.be.Array;
       err.length.should.eql(1);
@@ -68,18 +69,18 @@ describe("Schema: ", function () {
 
     it('apply schema with correct doc', function() {
       var appliedSchema = schema.applySchema({
-        name: 'Alex',
-        description: 'Here is a desscription',
-        count: 5
+        name: faker.name.findName(),
+        description: faker.lorem.sentences(),
+        count: faker.random.number()
       });
       appliedSchema.should.have.properties(['name', 'description', 'count']);
     });
     it('apply schema with correct doc', function() {
       var appliedSchema = schema.applySchema({
-        name: 'Alex',
-        description: 'Here is a desscription',
-        count: 5,
-        dog: 'five'
+        name: faker.name.findName(),
+        description: faker.lorem.sentences(),
+        count: faker.random.number(),
+        blah: faker.lorem.words()
       });
       appliedSchema.should.have.properties(['name', 'description', 'count']);
       appliedSchema.should.not.have.property('dog');
@@ -87,8 +88,8 @@ describe("Schema: ", function () {
     it('apply schema should throw error', function() {
       util.shouldThrowError(function () {
         var appliedSchema = schema.applySchema({
-          name: 'Alex',
-          description: 'Here is a desscription'
+          name: faker.nae.findName(),
+          description: faker.lorem.sentences()
         });
       });
     });

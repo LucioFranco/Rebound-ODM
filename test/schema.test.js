@@ -15,20 +15,48 @@ describe("Schema: ", function () {
   });
 
   describe('getIndexMappingJSON', function() {
-    it('should map a schema definition to a valid Elasticsearch Index Mapping', function(){
+    it.only('should map a schema definition to a valid Elasticsearch Index Mapping', function(){
       var schema = new Schema({
         name: String,
         description: {type: String, index_analyzer:"type"},
-        count: {type: 'number'},
+        count: {type: 'number', analyzer: 'not_anaylzed'},
         max: Number,
+        comments: [{
+          type: Object,
+          properties: {
+            fieldWithObject: {
+              properties: {
+                deep: {
+                  type: 'string',
+                  analyzer: 'not_anaylzed'
+                }
+              }
+            }
+          }
+        }],
         anotherField: Schema.types.String,
+        fieldWithObject: {
+          properties: {
+            name: {
+              type: 'string',
+              analyzer: 'not_anaylzed'
+            }
+          }
+        },
         anotherProperty: String
       });
       var map = schema.getIndexMappingJSON();
       map.should.be.ok;
       map.should.have.property('properties');
-      _.each(map.properties, function (e) {
+      _.each(map.properties, function (e, key) {
+        if (_.isArray(e)) {
+          e = e[0];
+        }
         e.should.have.property('type');
+        if (e.type === 'object') {
+          e.properties.should.have.property('type')
+        }
+
       });
     });
   });

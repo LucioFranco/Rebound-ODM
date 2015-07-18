@@ -10,7 +10,11 @@ describe('Model:', function () {
   describe('create model', function () {
     it('create model without Rebound Object', function () {
       var User = new Model(
-        Rebound.connection,{},
+        Rebound.connection,{
+            index: 'test',
+            type: 'test'
+        },
+        {},
         new Schema({
           username: String,
           password: String,
@@ -20,6 +24,7 @@ describe('Model:', function () {
       User.should.have.properties(['connection', 'schema']);
       User.schema.should.be.instanceof(Schema);
     });
+
     it('create model with Rebound Object', function () {
       var UserSchema = new Schema({
         username: String,
@@ -39,7 +44,7 @@ describe('Model:', function () {
       name: String,
       count: Number
     });
-    var TestModel = new Model(Rebound.connection, {index: 'test', type: 'text'}, TestSchema);
+    var TestModel = new Model(Rebound.connection, {}, {index: 'test', type: 'text'}, TestSchema);
 
     describe('model create', function() {
       it('create document with doc', function() {
@@ -53,6 +58,7 @@ describe('Model:', function () {
             result.created.should.be.true;
           });
       });
+
       it('create document with doc', function() {
         util.shouldThrowError(function () {
           TestModel.create({ name: faker.name.findName() });

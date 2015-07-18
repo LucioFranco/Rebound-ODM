@@ -75,6 +75,53 @@ describe('Model:', function () {
             result._version.should.be.eql(2);
           });
       });
+      it('delete created document by query', function() {
+        return TestModel
+          .create({
+            name: faker.name.findName(),
+            count: 10
+          })
+          .then(function (result) {
+            return TestModel.deleteByQuery({
+                query: {
+                  term: {
+                    count: 10
+                  }
+                }
+              });
+          })
+          .then(function (result) {
+            result._indices.test._shards.failed.should.eql(0);
+          });
+      });
+    });
+    describe('model search', function() {
+      it('search is configured properly', function() {
+        this.timeout(4000);
+        var doc = {
+          name: faker.name.findName(),
+          count: faker.random.number()
+        };
+
+        return TestModel
+          .create(doc)
+          .delay(1000)
+          .then(function (result) {
+            return TestModel
+              .search({
+                query: {
+                  match: {
+                    name: doc.name
+                  }
+                }
+              })
+          })
+          .then(function (result) {
+            result.hits.should.be.ok;
+            result.hits.total.should.eql(1);
+            (JSON.stringify(result.hits.hits[0]._source)).should.eql(JSON.stringify(doc))
+          });
+      });
     });
   });
 

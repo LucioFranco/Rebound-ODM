@@ -18,9 +18,17 @@ We're just beginning, but I'm incorporating many of the lessons learned from sev
 
 Check out the [roadmap](https://github.com/LucioFranco/Reboundjs/issues/1).
 
+## API
+
+Check out the [API](https://github.com/LucioFranco/Reboundjs/blob/master/API.md).
+
 ## Testing
 
 Tests are written as integrated, behavioral tests of the exposed API. Included Vagrantfile to stand-up a live Elasticsearch instance (1.5 as of 03/26/2015)
 
 * vagrant up or have an instance of Elasticsearch running locally
 * npm test
+
+## Releases
+
+  - 0.1.0 - Coming soon

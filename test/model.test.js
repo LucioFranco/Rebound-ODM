@@ -59,6 +59,7 @@ describe('Model:', function () {
         });
       });
     });
+
     describe('model delete', function() {
       it('delete created document', function() {
         return TestModel
@@ -75,6 +76,7 @@ describe('Model:', function () {
             result._version.should.be.eql(2);
           });
       });
+
       it('delete created document by query', function() {
         return TestModel
           .create({
@@ -95,6 +97,46 @@ describe('Model:', function () {
           });
       });
     });
+
+    describe('model update', function() {
+      it('update document', function() {
+        this.timeout(4000);
+        var doc = {
+          name: faker.name.findName(),
+          count: faker.random.number()
+        };
+
+        return TestModel
+          .create(doc)
+          .delay(500)
+          .then(function (result) {
+            result.created.should.be.true;
+            return TestModel.get(result._id);
+          })
+          .then(function (result) {
+            result._source.name.should.eql(doc.name);
+            result._source.count.should.eql(doc.count);
+            doc = {
+              name: faker.name.findName(),
+              count: faker.random.number()
+            };
+            return TestModel.update(result._id, doc);
+          })
+          .then(function (result) {
+            result._version.should.be.eql(2);
+            return result;
+          })
+          .then(function (result) {
+            return TestModel.get(result._id);
+          })
+          .then(function (result) {
+            TestSchema.validateDoc(result._source);
+            result._source.name.should.eql(doc.name);
+            result._source.count.should.eql(doc.count);
+          })
+      });
+    });
+
     describe('model search', function() {
       it('search is configured properly', function() {
         this.timeout(4000);
@@ -105,7 +147,7 @@ describe('Model:', function () {
 
         return TestModel
           .create(doc)
-          .delay(1000)
+          .delay(500)
           .then(function (result) {
             return TestModel
               .search({
@@ -119,7 +161,7 @@ describe('Model:', function () {
           .then(function (result) {
             result.hits.should.be.ok;
             result.hits.total.should.eql(1);
-            (JSON.stringify(result.hits.hits[0]._source)).should.eql(JSON.stringify(doc))
+            TestSchema.validateDoc(result.hits.hits[0]._source);
           });
       });
     });

@@ -15,7 +15,7 @@ describe("Schema: ", function () {
   });
 
   describe('getIndexMappingJSON', function() {
-    it.only('should map a schema definition to a valid Elasticsearch Index Mapping', function(){
+    it('should map a schema definition to a valid Elasticsearch Index Mapping', function(){
       var schema = new Schema({
         name: String,
         description: {type: String, index_analyzer:"type"},

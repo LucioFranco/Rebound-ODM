@@ -9,6 +9,8 @@ describe("Schema: ", function () {
     it('should map schema types to Elasticsearch types',function(){
       Schema.types.String.should.eql('string');
       Schema.types[String].should.eql('string');
+      Schema.types[Number].should.eql('integer');
+      Schema.types[Date].should.eql('date');
     });
   });
 

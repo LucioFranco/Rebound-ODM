@@ -9,8 +9,8 @@ describe("Schema: ", function () {
     it('should map schema types to Elasticsearch types',function(){
       Schema.types.String.should.eql('string');
       Schema.types[String].should.eql('string');
-    })
-  })
+    });
+  });
 
   describe('getIndexMappingJSON', function() {
     it('should map a schema definition to a valid Elasticsearch Index Mapping', function(){
@@ -46,6 +46,7 @@ describe("Schema: ", function () {
       err.should.be.Array;
       err.length.should.be.eql(0);
     });
+
     it('should pass validation', function() {
       var schema = new Schema({
         name: String,
@@ -60,6 +61,7 @@ describe("Schema: ", function () {
       err.length.should.eql(1);
     });
   });
+
   describe('apply schema', function() {
     var schema = new Schema({
       name: String,
@@ -75,6 +77,7 @@ describe("Schema: ", function () {
       });
       appliedSchema.should.have.properties(['name', 'description', 'count']);
     });
+
     it('apply schema with correct doc', function() {
       var appliedSchema = schema.applySchema({
         name: faker.name.findName(),
@@ -85,6 +88,7 @@ describe("Schema: ", function () {
       appliedSchema.should.have.properties(['name', 'description', 'count']);
       appliedSchema.should.not.have.property('dog');
     });
+
     it('apply schema should throw error', function() {
       util.shouldThrowError(function () {
         var appliedSchema = schema.applySchema({

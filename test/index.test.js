@@ -18,7 +18,12 @@ describe("Rebound module: ", function () {
   });
   describe('custom connection configuration', function() {
     it('with options', function() {
-      Rebound.connect({ host: 'localhost:9200' });
+      Rebound.connect('localhost:9200', {
+        defaults: {
+          index: 'test',
+          type: 'test'
+        }
+      });
       return Rebound
         .ping(1000)
         .then(function (res) {

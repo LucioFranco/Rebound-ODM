@@ -32,30 +32,51 @@ describe('Model:', function () {
       User.schema.should.eql(UserSchema);
     });
   });
-  describe('model create', function() {
+
+  describe('Model CRUD', function() {
     var TestSchema = new Schema({
       name: String,
       count: Number
     });
     var TestModel = new Model(Rebound.connection, {index: 'test', type: 'text'}, TestSchema);
 
-    it('create document with doc', function() {
-      return TestModel
-        .create({
-          name: 'USA',
-          count: 10
-        })
-        .then(function (result) {
-          result.should.be.ok;
-          result.created.should.be.true;
+    describe('model create', function() {
+      it('create document with doc', function() {
+        return TestModel
+          .create({
+            name: 'USA',
+            count: 10
+          })
+          .then(function (result) {
+            result.should.be.ok;
+            result.created.should.be.true;
+          });
+      });
+      it('create document with doc', function() {
+        util.shouldThrowError(function () {
+          TestModel.create({ name: 'RUSSIA' });
         });
+      });
     });
-    it('create document with doc', function() {
-      util.shouldThrowError(function () {
-        TestModel.create({ name: 'RUSSIA' });
+    describe('model delete', function() {
+      it('delete created document', function() {
+        return TestModel
+          .create({
+            name: 'Bob',
+            count: 115
+          })
+          .then(function (result) {
+            return TestModel.delete(result._id);
+          })
+          .then(function (result) {
+            result.should.be.ok;
+            result.found.should.be.true;
+            result._version.should.be.eql(2);
+          });
       });
     });
   });
+
   after(function () {
     return es.Client().indices.delete({index: 'test'});
   });

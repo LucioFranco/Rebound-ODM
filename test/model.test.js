@@ -147,7 +147,7 @@ describe('Model:', function () {
 
         return TestModel
           .create(doc)
-          .delay(500)
+          .delay(750)
           .then(function (result) {
             return TestModel
               .search({

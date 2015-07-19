@@ -1,5 +1,12 @@
 TESTS = $(shell find test -name '*.test.js')
 REPORTER = spec
+SRC = lib/**
+DOC_OUTPUT = API.md
+
+docs:
+	@./node_modules/.bin/markdox \
+				$(SRC) \
+				--output $(DOC_OUTPUT)
 
 test:
 	@./node_modules/.bin/mocha \
@@ -19,4 +26,4 @@ report-coverage:
 clean:
 	rm -r -f coverage
 
-.PHONY: test test-coverage clean report-coverage
+.PHONY: test test-coverage clean report-coverage docs

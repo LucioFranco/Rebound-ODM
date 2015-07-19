@@ -31,7 +31,7 @@ describe('Model:', function () {
         password: String,
         age: Number
       });
-      var User = Rebound.model('User', {},UserSchema);
+      var User = Rebound.modelIndex('test', 'User', UserSchema);
       User.should.be.ok;
       User.should.have.properties(['connection', 'schema']);
       User.schema.should.be.instanceof(Schema);
@@ -144,7 +144,7 @@ describe('Model:', function () {
     });
 
     describe('model search', function() {
-      it('search is configured properly', function() {
+      it('search via body object', function() {
         this.timeout(4000);
         var doc = {
           name: faker.name.findName(),
@@ -153,16 +153,37 @@ describe('Model:', function () {
 
         return TestModel
           .create(doc)
-          .delay(1000)
+          .delay(2000)
           .then(function (result) {
             return TestModel
-              .search({
+              .searchBody({
                 query: {
                   match: {
                     name: doc.name
                   }
                 }
-              })
+              });
+          })
+          .then(function (result) {
+            result.hits.should.be.ok;
+            result.hits.total.should.eql(1);
+            TestSchema.validateDoc(result.hits.hits[0]._source);
+          });
+      });
+
+      it('search via query string', function() {
+        this.timeout(4000);
+        var doc = {
+          name: faker.name.findName(),
+          count: faker.random.number()
+        };
+
+        return TestModel
+          .create(doc)
+          .delay(2000)
+          .then(function (result) {
+            return TestModel
+              .searchQuery('name:' + doc.name);
           })
           .then(function (result) {
             result.hits.should.be.ok;

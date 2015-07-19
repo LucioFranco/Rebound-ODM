@@ -62,6 +62,25 @@ Create a Rebound Model with the default index and specifeied type
 
 * **Model** The Rebound Model is returned
 
+## Schema(obj, opts)
+
+Rebound Schema object
+
+### Examples:
+	Rebound.Schema({
+ 		name: String,
+   	description: { type: 'string', analyzer: 'not_analyzed' }
+    });
+
+### Params:
+
+* **Object** *obj* schema
+* **Object** *opts* Optional options
+
+### Return:
+
+* **Schema** New Rebound Schema is returned
+
 ## getModel(index, type)
 
 Gets specified model

@@ -144,7 +144,7 @@ describe('Model:', function () {
     });
 
     describe('model search', function() {
-      it('search is configured properly', function() {
+      it('search via body object', function() {
         this.timeout(4000);
         var doc = {
           name: faker.name.findName(),
@@ -156,13 +156,34 @@ describe('Model:', function () {
           .delay(1000)
           .then(function (result) {
             return TestModel
-              .search({
+              .searchBody({
                 query: {
                   match: {
                     name: doc.name
                   }
                 }
-              })
+              });
+          })
+          .then(function (result) {
+            result.hits.should.be.ok;
+            result.hits.total.should.eql(1);
+            TestSchema.validateDoc(result.hits.hits[0]._source);
+          });
+      });
+
+      it('search via query string', function() {
+        this.timeout(4000);
+        var doc = {
+          name: faker.name.findName(),
+          count: faker.random.number()
+        };
+
+        return TestModel
+          .create(doc)
+          .delay(1000)
+          .then(function (result) {
+            return TestModel
+              .searchQuery('name:' + doc.name);
           })
           .then(function (result) {
             result.hits.should.be.ok;

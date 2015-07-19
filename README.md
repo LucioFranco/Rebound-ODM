@@ -20,7 +20,7 @@ Check out the [roadmap](https://github.com/LucioFranco/Reboundjs/issues/1).
 
 ## API
 
-Check out the [API](https://github.com/LucioFranco/Reboundjs/blob/master/API.md).
+Check out the [API](https://github.com/LucioFranco/Reboundjs/blob/master/API.md). More examples are coming soon for right now these docs are basic.
 
 ## Testing
 

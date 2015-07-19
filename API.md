@@ -102,10 +102,12 @@ Ping the elasticsearch node
 
 Creates an elasticsearch document
 
+To create the documents with your own id set the *opt.id* property to the id you want for that document.
+
 ### Params:
 
 * **Object** *doc* the body of the elasticsearch document
-* **Object** *opt* Optional options object
+* **Object** *opt* Optional options objectg
 * **Function** *cb* Optional callback
 
 ### Return:
@@ -207,11 +209,11 @@ Applies the Schema to the doc. It will clean up the doc if it needs to.
 
 ## searchQuery(query, options, callback)
 
-Search the model based off of a elasticsearch Query DSL Object
+Search the model based off of a elasticsearch Query string
 
 ### Params:
 
-* **Object** *query* This can either be a query or a body
+* **String** *query* based of elasitcsarch query string
 * **Object** *options* Options for the es call
 * **Function** *callback* Optional callback
 

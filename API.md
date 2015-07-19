@@ -11,7 +11,7 @@ Connects to a specific node
 
 		Rebound.connect('localhost:9200');
 		// or
-		var optoons = {
+		var options = {
 			defaults: {
 				index: 'Company',
 				type: 'ExampleType'

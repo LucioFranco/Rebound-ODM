@@ -203,13 +203,43 @@ Applies the Schema to the doc. It will clean up the doc if it needs to.
 
 <!-- Start lib/search.js -->
 
-## search(query, options, callback)
+# Search
 
-search
+## searchQuery(query, options, callback)
+
+Search the model based off of a elasticsearch Query DSL Object
 
 ### Params:
 
 * **Object** *query* This can either be a query or a body
+* **Object** *options* Options for the es call
+* **Function** *callback* Optional callback
+
+### Return:
+
+* **Promise** Returns a promise unless there is a callback
+
+## searchBody(body, options, callback)
+
+Search the model based of a elasticsearch body object
+
+### Params:
+
+* **Object** *body* object with more search options
+* **Object** *options* Options for the es call
+* **Function** *callback* Optional callback
+
+### Return:
+
+* **Promise** Returns a promise unless there is a callback
+
+## get(id, options, callback)
+
+Get document by document Id
+
+### Params:
+
+* **String|Number|ElasitcsearchId** *id* document id
 * **Object** *options* Options for the es call
 * **Function** *callback* Optional callback
 

@@ -1,6 +1,6 @@
 # Rebound-ODM
 
-[![Build Status](https://travis-ci.org/LucioFranco/Rebound-ODM.svg?branch=master)](https://travis-ci.org/LucioFranco/Rebound-ODM) [![Coverage Status](https://coveralls.io/repos/LucioFranco/Rebound-ODM/badge.svg?branch=master&service=github)](https://coveralls.io/github/LucioFranco/Rebound-ODM?branch=master) [![David](https://img.shields.io/david/LucioFranco/Rebound-ODM.svg)](https://github.com/LucioFranco/Rebound-ODM) [![David](https://img.shields.io/david/dev/LucioFranco/Rebound-ODM.svg)](https://github.com/LucioFranco/Rebound-ODM) [![GitHub license](https://img.shields.io/github/license/LucioFranco/Rebound-ODM.svg)](https://github.com/LucioFranco/Rebound-ODM)
+[![npm](https://img.shields.io/npm/v/reboundodm.svg)](https://npmjs.com/reboundodm) [![Build Status](https://travis-ci.org/LucioFranco/Rebound-ODM.svg?branch=master)](https://travis-ci.org/LucioFranco/Rebound-ODM) [![Coverage Status](https://coveralls.io/repos/LucioFranco/Rebound-ODM/badge.svg?branch=master&service=github)](https://coveralls.io/github/LucioFranco/Rebound-ODM?branch=master) [![David](https://img.shields.io/david/LucioFranco/Rebound-ODM.svg)](https://github.com/LucioFranco/Rebound-ODM) [![GitHub license](https://img.shields.io/github/license/LucioFranco/Rebound-ODM.svg)](https://github.com/LucioFranco/Rebound-ODM)
 
 ## Introduction
 

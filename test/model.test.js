@@ -153,7 +153,7 @@ describe('Model:', function () {
 
         return TestModel
           .create(doc)
-          .delay(1000)
+          .delay(2000)
           .then(function (result) {
             return TestModel
               .searchBody({
@@ -180,7 +180,7 @@ describe('Model:', function () {
 
         return TestModel
           .create(doc)
-          .delay(1000)
+          .delay(2000)
           .then(function (result) {
             return TestModel
               .searchQuery('name:' + doc.name);

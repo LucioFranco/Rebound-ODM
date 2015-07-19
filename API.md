@@ -165,15 +165,39 @@ Update document by id
 
 <!-- Start lib/schema.js -->
 
-## mapProperties()
+# Rebound Schema
 
-function checkTypes(doc) {
-  // TODO need to figure out proper way to do this
-  var defs = mapProperties(this.defs);
-  _.forIn(doc, function (value, key) {
-      var temp = defs.properties[key].type;
-  });
-}
+## getIndexMappingJSON()
+
+Get the elasticsearch index mapping for the Schema
+
+### Return:
+
+* **Object** Returns the elasticsearch mapping for the schema
+
+## validateDoc
+
+Validate a doc vs the schema
+
+### Params:
+
+* **Object** *doc* that you want to validate
+
+### Return:
+
+* **Array** Returns an array of errors
+
+## applySchema(doc)
+
+Applies the Schema to the doc. It will clean up the doc if it needs to.
+
+### Params:
+
+* **Object** *doc* that will be applied
+
+### Return:
+
+* **Object** Returns the applied Schema object
 
 <!-- End lib/schema.js -->
 

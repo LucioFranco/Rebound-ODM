@@ -31,11 +31,43 @@ Rebound.connect('localhost:9200');
 
 To create a Rebound schema:
 
+```
+var UserSchema = Rebound.Schema({
+    name: String,
+    description: { type: 'string', analyzer: 'not_analyzed' }
+  });
+```
+
 To create a Rebound Model:
 
 ```
-Rebound.modelIndex('ExampleIndex', 'Users', UserSchema);
+var User = Rebound.modelIndex('ExampleIndex', 'Users', UserSchema);
 ```
+
+Once you have a Rebound model you can now do CRUD opterations and Search query on the models index:
+
+```
+User.create({
+    name: 'Alex',
+    description: 'Young male with a future'
+  })
+  .then(function (result) {
+      // returns a bluebird promise
+    });
+
+User.searchBody({
+    query: {
+      match: {
+        name: 'Alex'
+      }
+    }
+  })
+  .then(function (result) {
+      // returns a bluebird promise
+    });
+```
+
+To find more about the model api check the [API docs](https://github.com/LucioFranco/Reboundjs/blob/master/API.md).
 
 ## Roadmap
 
@@ -54,4 +86,4 @@ Tests are written as integrated, behavioral tests of the exposed API. Included V
 
 ## Releases
 
-  - 0.1.0 - Coming soon
+  - 0.1.0 - Inital release

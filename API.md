@@ -2,9 +2,7 @@
 
 <!-- Start lib/index.js -->
 
-## Rebound()
-
-Rebound Object
+# Rebound API
 
 ## connect(host, Options)
 
@@ -98,7 +96,70 @@ Ping the elasticsearch node
 
 <!-- Start lib/model.js -->
 
-## search
+# Rebound Model
+
+## create(doc, opt, cb)
+
+Creates an elasticsearch document
+
+### Params:
+
+* **Object** *doc* the body of the elasticsearch document
+* **Object** *opt* Optional options object
+* **Function** *cb* Optional callback
+
+### Return:
+
+* **Promise** If there is no callback it will return a promise
+
+## delete(id, opt, cb)
+
+Deletes a document based of the supllied id
+
+### Params:
+
+* **String|Number|ElasicsearchId** *id* document id
+* **Object** *opt* Optional options object
+* **Function** *cb* Optional callback
+
+### Return:
+
+* **Promise** If there is no callback it will return a promise
+
+## deleteByQuery(body, opt, cb)
+
+Delete document by a query
+
+### Params:
+
+* **Object** *body* Query body
+* **Object** *opt* Optional options object
+* **Function** *cb* Optional callback
+
+### Return:
+
+* **Promise** If there is no callback it will return a promise
+
+## update(id, doc, opt, cb)
+
+Update document by id
+
+### Params:
+
+* **String|Number|ElasticsearchId** *id* document id
+* **Object** *doc* body
+* **Object** *opt* Optional options object
+* **Function** *cb* Optional callback
+
+### Return:
+
+* **Promise** If there is no callback it will return a promise
+
+## prototype
+
+## Search
+
+*For search API checkout the Rebound Search Object*
 
 <!-- End lib/model.js -->
 

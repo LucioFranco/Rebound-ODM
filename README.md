@@ -1,6 +1,6 @@
 # Rebound-ODM
 
-[![Build Status](https://travis-ci.org/LucioFranco/Reboundjs.svg?branch=master)](https://travis-ci.org/LucioFranco/Reboundjs) [![Coverage Status](https://coveralls.io/repos/LucioFranco/Reboundjs/badge.svg?branch=master&service=github)](https://coveralls.io/github/LucioFranco/Reboundjs?branch=master) [![David](https://img.shields.io/david/LucioFranco/Reboundjs.svg)](https://github.com/LucioFranco/Reboundjs) [![David](https://img.shields.io/david/dev/LucioFranco/Reboundjs.svg)](https://github.com/LucioFranco/Reboundjs) [![GitHub license](https://img.shields.io/github/license/LucioFranco/Reboundjs.svg)](https://github.com/LucioFranco/Reboundjs)
+[![Build Status](https://travis-ci.org/LucioFranco/Rebound-ODM.svg?branch=master)](https://travis-ci.org/LucioFranco/Rebound-ODM) [![Coverage Status](https://coveralls.io/repos/LucioFranco/Rebound-ODM/badge.svg?branch=master&service=github)](https://coveralls.io/github/LucioFranco/Rebound-ODM?branch=master) [![David](https://img.shields.io/david/LucioFranco/Rebound-ODM.svg)](https://github.com/LucioFranco/Rebound-ODM) [![David](https://img.shields.io/david/dev/LucioFranco/Rebound-ODM.svg)](https://github.com/LucioFranco/Rebound-ODM) [![GitHub license](https://img.shields.io/github/license/LucioFranco/Rebound-ODM.svg)](https://github.com/LucioFranco/Rebound-ODM)
 
 ## Introduction
 
@@ -67,15 +67,15 @@ User.searchBody({
     });
 ```
 
-To find more about the model api check the [API docs](https://github.com/LucioFranco/Reboundjs/blob/master/API.md).
+To find more about the model api check the [API docs](https://github.com/LucioFranco/Rebound-ODM/blob/master/API.md).
 
 ## Roadmap
 
-Check out the [roadmap](https://github.com/LucioFranco/Reboundjs/issues/1).
+Check out the [roadmap](https://github.com/LucioFranco/Rebound-ODM/issues/1).
 
 ## API
 
-Check out the [API](https://github.com/LucioFranco/Reboundjs/blob/master/API.md). More examples are coming soon for right now these docs are basic.
+Check out the [API](https://github.com/LucioFranco/Rebound-ODM/blob/master/API.md). More examples are coming soon for right now these docs are basic.
 
 ## Testing
 

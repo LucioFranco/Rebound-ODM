@@ -2,14 +2,97 @@
 
 <!-- Start lib/index.js -->
 
-## connect(host, opt)
+## Rebound()
+
+Rebound Object
+
+## connect(host, Options)
 
 Connects to a specific node
+### Example:
+
+		Rebound.connect('localhost:9200');
+		// or
+		var optoons = {
+			defaults: {
+				index: 'Company',
+				type: 'ExampleType'
+			}
+			// any other elasticsearch options you want go here
+		};
+		Rebound.connect('localhost:9200', options);
 
 ### Params:
 
-* **string** *host* 
-* **Object** *opt* Options for the elasticsearch clien
+* **string** *host* for elasticsearch
+* **Object** *Options* for the elasticsearch clien
+
+## modelIndex(index, type, schema, opt)
+
+Create a Rebound Model with a cerntain index, type, and schema
+
+### Examples:
+
+   	Rebound.modelIndex('Company', 'User', Schema);
+
+### Params:
+
+* **String** *index* elasticsearch index
+* **String** *type* elasticsearch type
+* **Schema** *schema* The Rebound Schema that maps to the specified index and type
+* **Object** *opt* Options for the Rebound Model
+
+### Return:
+
+* **Model** The Rebound Model is returned
+
+## modelType(type, schema, opt)
+
+Create a Rebound Model with the default index and specifeied type
+
+### Examples:
+
+   	Rebound.modelType('User', Schema);
+
+### Params:
+
+* **String** *type* elasticsearch type
+* **Schema** *schema* The Rebound Schema that maps to the specified index and type
+* **Object** *opt* Options for the Rebound Model
+
+### Return:
+
+* **Model** The Rebound Model is returned
+
+## getModel(index, type)
+
+Gets specified model
+
+### Examples:
+
+   	Rebound.getModel('Comapny', 'User');
+
+### Params:
+
+* **String** *index* Index for the model you want
+* **String** *type* Type for the Model you want
+
+### Return:
+
+* **Model** The Rebound Model is returned
+
+## ping(timeout, callback)
+
+Ping the elasticsearch node
+
+### Params:
+
+* **Number** *timeout* 
+* **Function** *callback* 
+
+### Return:
+
+* **Promise** Optional promise
 
 <!-- End lib/index.js -->
 

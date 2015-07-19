@@ -31,7 +31,8 @@ describe('Model:', function () {
         password: String,
         age: Number
       });
-      var User = Rebound.model('User', {},UserSchema);
+      var User = Rebound.modelIndex('test', 'User', UserSchema);
+      console.log(Rebound);
       User.should.be.ok;
       User.should.have.properties(['connection', 'schema']);
       User.schema.should.be.instanceof(Schema);

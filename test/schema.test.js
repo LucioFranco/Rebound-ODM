@@ -18,7 +18,7 @@ describe("Schema: ", function () {
     it('should map a schema definition to a valid Elasticsearch Index Mapping', function(){
       var schema = new Schema({
         name: String,
-        description: {type: String, index_analyzer:"type"},
+        description: {type: String, index_analyzer: "type"},
         count: {type: 'number', analyzer: 'not_anaylzed'},
         max: Number,
         comments: [{
@@ -96,16 +96,16 @@ describe("Schema: ", function () {
     var schema = new Schema({
       name: String,
       description: { type: String },
-      count: Number
+      count: { type: Number, default: 1 }
     });
 
     it('apply schema with correct doc', function() {
       var appliedSchema = schema.applySchema({
         name: faker.name.findName(),
-        description: faker.lorem.sentences(),
-        count: faker.random.number()
+        description: faker.lorem.sentences()
       });
       appliedSchema.should.have.properties(['name', 'description', 'count']);
+      appliedSchema.count.should.be.eql(1);
     });
 
     it('apply schema with correct doc', function() {

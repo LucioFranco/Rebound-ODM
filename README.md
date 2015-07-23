@@ -33,6 +33,7 @@ To create a Rebound schema:
 
 ```
 var UserSchema = Rebound.Schema({
+    _id: { type: 'string', default: uuid() },
     name: String,
     description: { type: 'string', analyzer: 'not_analyzed' }
   });

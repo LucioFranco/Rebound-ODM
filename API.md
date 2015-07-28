@@ -115,7 +115,7 @@ Ping the elasticsearch node
 
 <!-- Start lib/model.js -->
 
-# Rebound Model
+# Model
 
 ## create(doc, opt, cb)
 
@@ -176,6 +176,14 @@ Delete document by a query
 
 * **Promise** If there is no callback it will return a promise
 
+## Query
+
+Click [here](https://github.com/LucioFranco/Rebound-ODM/blob/master/API.md#query) for the Query API
+
+## Search
+
+Click [here](https://github.com/LucioFranco/Rebound-ODM/blob/master/API.md#search) for the Search API
+
 <!-- End lib/model.js -->
 
 <!-- Start lib/query.js -->
@@ -200,7 +208,7 @@ findAll documents with specific query
 
 <!-- Start lib/schema.js -->
 
-# Rebound Schema
+# Schema
 
 ## getIndexMappingJSON()
 

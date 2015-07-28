@@ -176,11 +176,11 @@ Delete document by a query
 
 * **Promise** If there is no callback it will return a promise
 
-## Query
+## Query API
 
 Click [here](https://github.com/LucioFranco/Rebound-ODM/blob/master/API.md#query) for the Query API
 
-## Search
+## Search API
 
 Click [here](https://github.com/LucioFranco/Rebound-ODM/blob/master/API.md#search) for the Search API
 

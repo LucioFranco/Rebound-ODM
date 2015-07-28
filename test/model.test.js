@@ -59,9 +59,17 @@ describe('Model:', function () {
           });
       });
 
-      it('create document with doc', function() {
+      it('create document with doc should fail with promise', function() {
         util.shouldThrowError(function () {
           TestModel.create({ name: faker.name.findName() });
+        });
+      });
+
+      it('create document with doc should fail with callback', function(done) {
+        TestModel.create({ name: faker.name.findName() }, {}, function (err, result) {
+          err.should.be.ok;
+          err.msg.should.be.String;
+          done();
         });
       });
     });

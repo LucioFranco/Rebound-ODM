@@ -80,7 +80,7 @@ Check out the [API](https://github.com/LucioFranco/Rebound-ODM/blob/master/API.m
 
 ## Testing
 
-Tests are written as integrated, behavioral tests of the exposed API. Included Vagrantfile to stand-up a live Elasticsearch instance
+Tests are written as integrated, behavioral tests of the exposed API. Included Vagrantfile to stand-up a live Elasticsearch instance.
 
 * vagrant up or have an instance of Elasticsearch running locally
 * npm test

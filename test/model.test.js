@@ -209,7 +209,18 @@ describe('Model:', function () {
             result.hits.total.should.eql(4);
             result.hits.hits.forEach(function (e) {
               e.should.be.ok;
-            })
+            });
+          });
+      });
+
+      it('findAll should return all documents with callback', function(done) {
+        TestModel
+          .findAll({}, {}, function (err, result) {
+            result.hits.total.should.eql(4);
+            result.hits.hits.forEach(function (e) {
+              e.should.be.ok;
+            });
+            done();
           });
       });
     });

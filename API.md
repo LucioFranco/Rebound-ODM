@@ -176,6 +176,20 @@ Update document by id
 
 * **Promise** If there is no callback it will return a promise
 
+## findAll(query, opt, cb)
+
+findAll documents with specific query
+
+### Params:
+
+* **Object** *query* object
+* **Object** *opt* Optional options object
+* **Function** *cb* Optional callback
+
+### Return:
+
+* **Promise** If there is no callback it will return a promise
+
 ## prototype
 
 ## Search

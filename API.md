@@ -133,6 +133,21 @@ To create the documents with your own id set the *opt.id* property to the id you
 
 * **Promise** If there is no callback it will return a promise
 
+## update(id, doc, opt, cb)
+
+Update document by id
+
+### Params:
+
+* **String|Number|ElasticsearchId** *id* document id
+* **Object** *doc* body
+* **Object** *opt* Optional options object
+* **Function** *cb* Optional callback
+
+### Return:
+
+* **Promise** If there is no callback it will return a promise
+
 ## delete(id, opt, cb)
 
 Deletes a document based of the supllied id
@@ -154,21 +169,6 @@ Delete document by a query
 ### Params:
 
 * **Object** *body* Query body
-* **Object** *opt* Optional options object
-* **Function** *cb* Optional callback
-
-### Return:
-
-* **Promise** If there is no callback it will return a promise
-
-## update(id, doc, opt, cb)
-
-Update document by id
-
-### Params:
-
-* **String|Number|ElasticsearchId** *id* document id
-* **Object** *doc* body
 * **Object** *opt* Optional options object
 * **Function** *cb* Optional callback
 

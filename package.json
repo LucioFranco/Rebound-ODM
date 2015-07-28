@@ -1,6 +1,6 @@
 {
   "name": "reboundodm",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "An ElasticSearch ODM for Node.js. Use ElasticSearch as your primary document store...Elasticconnection!",
   "main": "./index.js",
   "scripts": {

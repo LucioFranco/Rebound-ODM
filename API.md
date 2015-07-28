@@ -176,6 +176,12 @@ Update document by id
 
 * **Promise** If there is no callback it will return a promise
 
+<!-- End lib/model.js -->
+
+<!-- Start lib/query.js -->
+
+# Query
+
 ## findAll(query, opt, cb)
 
 findAll documents with specific query
@@ -190,13 +196,7 @@ findAll documents with specific query
 
 * **Promise** If there is no callback it will return a promise
 
-## prototype
-
-## Search
-
-*For search API checkout the Rebound Search Object*
-
-<!-- End lib/model.js -->
+<!-- End lib/query.js -->
 
 <!-- Start lib/schema.js -->
 

@@ -200,6 +200,19 @@ describe('Model:', function () {
           });
       });
     });
+
+    describe('model find', function() {
+      it('findAll should return all documents', function() {
+        return TestModel
+          .findAll()
+          .then(function (result) {
+            result.hits.total.should.eql(4);
+            result.hits.hits.forEach(function (e) {
+              e.should.be.ok;
+            })
+          });
+      });
+    });
   });
 
   after(function () {

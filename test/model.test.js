@@ -127,7 +127,7 @@ describe('Model:', function () {
             TestSchema.validateDoc(result._source);
             result._source.name.should.eql(doc.name);
             result._source.count.should.eql(doc.count);
-          })
+          });
       });
     });
 

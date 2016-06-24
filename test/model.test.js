@@ -102,7 +102,7 @@ describe('Model:', function () {
 
         return TestModel
           .create(doc)
-          .then(util.delay(1000))
+          .then(util.delay(2000))
           .then(function (result) {
             result.created.should.be.true;
             return TestModel.get(result._id);
@@ -141,7 +141,7 @@ describe('Model:', function () {
 
         return TestModel
           .create(doc)
-          .then(util.delay(1000))
+          .then(util.delay(2000))
           .then(function (result) {
             return TestModel
               .searchBody({
@@ -168,7 +168,7 @@ describe('Model:', function () {
 
         return TestModel
           .create(doc)
-          .then(util.delay(1000))
+          .then(util.delay(2000))
           .then(function (result) {
             return TestModel
               .searchQuery('name:' + doc.name);

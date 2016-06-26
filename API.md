@@ -115,7 +115,7 @@ Ping the elasticsearch node
 
 <!-- Start lib/model.js -->
 
-# Rebound Model
+# Model
 
 ## create(doc, opt, cb)
 
@@ -127,6 +127,21 @@ To create the documents with your own id set the *opt.id* property to the id you
 
 * **Object** *doc* the body of the elasticsearch document
 * **Object** *opt* Optional options objectg
+* **Function** *cb* Optional callback
+
+### Return:
+
+* **Promise** If there is no callback it will return a promise
+
+## update(id, doc, opt, cb)
+
+Update document by id
+
+### Params:
+
+* **String|Number|ElasticsearchId** *id* document id
+* **Object** *doc* body
+* **Object** *opt* Optional options object
 * **Function** *cb* Optional callback
 
 ### Return:
@@ -161,14 +176,27 @@ Delete document by a query
 
 * **Promise** If there is no callback it will return a promise
 
-## update(id, doc, opt, cb)
+## Query API
 
-Update document by id
+Click [here](https://github.com/LucioFranco/Rebound-ODM/blob/master/API.md#query) for the Query API
+
+## Search API
+
+Click [here](https://github.com/LucioFranco/Rebound-ODM/blob/master/API.md#search) for the Search API
+
+<!-- End lib/model.js -->
+
+<!-- Start lib/query.js -->
+
+# Query
+
+## findAll(query, opt, cb)
+
+findAll documents with specific query
 
 ### Params:
 
-* **String|Number|ElasticsearchId** *id* document id
-* **Object** *doc* body
+* **Object** *query* object
 * **Object** *opt* Optional options object
 * **Function** *cb* Optional callback
 
@@ -176,17 +204,11 @@ Update document by id
 
 * **Promise** If there is no callback it will return a promise
 
-## prototype
-
-## Search
-
-*For search API checkout the Rebound Search Object*
-
-<!-- End lib/model.js -->
+<!-- End lib/query.js -->
 
 <!-- Start lib/schema.js -->
 
-# Rebound Schema
+# Schema
 
 ## getIndexMappingJSON()
 

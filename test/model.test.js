@@ -1,6 +1,6 @@
 var Model   = require('../lib/model');
 var Schema  = require('../lib/schema');
-var Rebound = require('../')
+var Rebound = require('../');
 var es      = require('elasticsearch');
 var should  = require('should');
 var util    = require('./testutil');
@@ -59,9 +59,17 @@ describe('Model:', function () {
           });
       });
 
-      it('create document with doc', function() {
+      it('create document with doc should fail with promise', function() {
         util.shouldThrowError(function () {
           TestModel.create({ name: faker.name.findName() });
+        });
+      });
+
+      it('create document with doc should fail with callback', function(done) {
+        TestModel.create({ name: faker.name.findName() }, {}, function (err, result) {
+          err.should.be.ok;
+          err.msg.should.be.String;
+          done();
         });
       });
     });
@@ -82,26 +90,6 @@ describe('Model:', function () {
             result._version.should.be.eql(2);
           });
       });
-
-      it('delete created document by query', function() {
-        return TestModel
-          .create({
-            name: faker.name.findName(),
-            count: 10
-          })
-          .then(function (result) {
-            return TestModel.deleteByQuery({
-                query: {
-                  term: {
-                    count: 10
-                  }
-                }
-              });
-          })
-          .then(function (result) {
-            result._indices.test._shards.failed.should.eql(0);
-          });
-      });
     });
 
     describe('model update', function() {
@@ -114,7 +102,7 @@ describe('Model:', function () {
 
         return TestModel
           .create(doc)
-          .delay(500)
+          .then(util.delay(2000))
           .then(function (result) {
             result.created.should.be.true;
             return TestModel.get(result._id);
@@ -139,7 +127,7 @@ describe('Model:', function () {
             TestSchema.validateDoc(result._source);
             result._source.name.should.eql(doc.name);
             result._source.count.should.eql(doc.count);
-          })
+          });
       });
     });
 
@@ -153,7 +141,7 @@ describe('Model:', function () {
 
         return TestModel
           .create(doc)
-          .delay(2000)
+          .then(util.delay(2000))
           .then(function (result) {
             return TestModel
               .searchBody({
@@ -180,7 +168,7 @@ describe('Model:', function () {
 
         return TestModel
           .create(doc)
-          .delay(2000)
+          .then(util.delay(2000))
           .then(function (result) {
             return TestModel
               .searchQuery('name:' + doc.name);
@@ -189,6 +177,30 @@ describe('Model:', function () {
             result.hits.should.be.ok;
             result.hits.total.should.eql(1);
             TestSchema.validateDoc(result.hits.hits[0]._source);
+          });
+      });
+    });
+
+    describe('model find', function() {
+      it('findAll should return all documents', function() {
+        return TestModel
+          .findAll()
+          .then(function (result) {
+            result.hits.total.should.eql(4);
+            result.hits.hits.forEach(function (e) {
+              e.should.be.ok;
+            });
+          });
+      });
+
+      it('findAll should return all documents with callback', function(done) {
+        TestModel
+          .findAll({}, {}, function (err, result) {
+            result.hits.total.should.eql(4);
+            result.hits.hits.forEach(function (e) {
+              e.should.be.ok;
+            });
+            done();
           });
       });
     });

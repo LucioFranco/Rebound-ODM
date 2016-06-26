@@ -9,3 +9,13 @@ exports.shouldThrowError = function (func) {
 
   if (!didThrow) throw new Error('did not throw');
 }
+
+exports.delay = function (time) {
+  return function (result) {
+    return new Promise(function (resolve) {
+      setTimeout(function () {
+        resolve(result);
+      }, time);
+    });
+  };
+};

@@ -1,4 +1,4 @@
 elasticsearch:
-  image: elasticsearch
+  image: elasticsearch:1.5
   ports:
     - "9200:9200"

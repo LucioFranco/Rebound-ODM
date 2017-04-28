@@ -59,6 +59,19 @@ describe('Model:', function () {
           });
       });
 
+      it('create document with own id should have specific id', function() {
+        var ownId = 'ownTestId123';
+        return TestModel
+            .create({
+              name: faker.name.findName(),
+              count: faker.random.number()
+            }, { id: ownId })
+            .then(function (result) {
+              result.should.be.ok;
+              result._id.should.be.equal(ownId);
+            });
+      });
+
       it('create document with doc should fail with promise', function() {
         util.shouldThrowError(function () {
           TestModel.create({ name: faker.name.findName() });
@@ -186,7 +199,7 @@ describe('Model:', function () {
         return TestModel
           .findAll()
           .then(function (result) {
-            result.hits.total.should.eql(4);
+            result.hits.total.should.eql(5);
             result.hits.hits.forEach(function (e) {
               e.should.be.ok;
             });
@@ -196,7 +209,7 @@ describe('Model:', function () {
       it('findAll should return all documents with callback', function(done) {
         TestModel
           .findAll({}, {}, function (err, result) {
-            result.hits.total.should.eql(4);
+            result.hits.total.should.eql(5);
             result.hits.hits.forEach(function (e) {
               e.should.be.ok;
             });
